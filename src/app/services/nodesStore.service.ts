@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { forkJoin, of } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, mergeMap } from 'rxjs/operators';
 import { Store } from './store';
 import { Node } from 'src/models/node.model';
 import { State } from './state';
@@ -28,13 +28,23 @@ export class NodesStore extends Store<Node[]> {
             node_name: false
           })
         ),
-        map(({ node_name }) => {
-          return {
-            ...node,
-            name: node_name,
-            online: !!node_name,
-            loading: false
-          };
+        mergeMap(({ node_name }) => {
+          return this.api.get(`${node.url}/api/v1/blocks`).pipe(
+            catchError(error =>
+              of({
+                data: null
+              })
+          ),
+          map(({ data }) => {
+            return {
+              ...node,
+              name: node_name,
+              online: !!node_name,
+              loading: false,
+              blocks: data
+            };
+          })
+        )
         })
       );
     });

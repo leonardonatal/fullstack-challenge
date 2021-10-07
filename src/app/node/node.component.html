@@ -5,7 +5,8 @@
     </h1>
     <div class="toolbar">
       <app-status [loading]="node.loading" [online]="node.online"></app-status>
-      <button class="expander" [ngClass]="{ expanded: expanded }" (click)="handleToogleExpand(node)"></button>
+      <!-- <button class="expander" [ngClass]="{ expanded: expanded }" (click)="handleToogleExpand(node)"></button> -->
+      <span style="margin-left: 1rem;" (click)="handleToogleExpand(node)"><i [ngClass]="expanded ? 'fas fa-chevron-down' : 'fas fa-chevron-up'"></i></span>
     </div>
   </article>
   <div class="body">
@@ -13,5 +14,16 @@
       {{ node.url }}
     </span>
   </div>
-  <div class="blocks-wrapper" *ngIf="expanded">Blocks go here</div>
+
+  <div *ngIf="expanded">
+    <div class="blocks-wrapper" *ngFor="let block of node.blocks">
+      <div class="block-id">
+        <span>{{ block.id }}</span>
+      </div>
+      <div class="block-text">
+        <span>{{ block.attributes.data }}</span>
+      </div>
+    </div>
+  </div>
+
 </div>

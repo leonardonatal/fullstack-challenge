@@ -1,11 +1,11 @@
 @import "../../assets/stylesheets/base/colors";
 
 .wrapper{
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #aaaaaa;
-  background: #f8f8f8;
-  border-radius: 5px;
+  margin: 12px 0;
+  padding: 14px 20px 14px 20px;
+  background: #FFFFFF;
+  border-radius: 3px;
+  box-shadow: 0px 4px 8px rgba(84, 110, 122, 0.24);
 }
 
 .head{
@@ -19,18 +19,23 @@
 }
 
 .name{
-  margin-top: 0;
-  margin-bottom: 6px;
-  color: #5bb7db;
+  margin: 0px !important;
+  font-weight: normal;
   font-size: 16px;
-  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.44px;
+  color: $dark-color;
 }
 
 .url{
-  margin-top: 2px;
-  margin-bottom: 2px;
-  color: #aaaaaa;
-  font-weight: 500;
+  color: $dark-color;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.25px;
+  opacity: 0.54;
 }
 
 .toolbar{
@@ -49,31 +54,55 @@
   cursor: pointer;
   outline: none;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-  }
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   border-left: 7px solid transparent;
+  //   border-right: 7px solid transparent;
+  // }
 
-  &:not(.expanded){
-    &::before {
-      border-bottom: 7px solid $text-color;
-    }
-  }
+  // &:not(.expanded){
+  //   &::before {
+  //     border-bottom: 7px solid $text-color;
+  //   }
+  // }
 
-  &.expanded{
-    &::before {
-      border-top: 7px solid $text-color;
-    }
-  }
+  // &.expanded{
+  //   &::before {
+  //     border-top: 7px solid $text-color;
+  //   }
+  // }
 }
 
 .blocks-wrapper{
-  margin: 20px 0;
-  text-align: center;
-  color: $danger-color;
+  margin: 4px 0;
   font-weight: 700;
+
+  background: rgb(0, 0, 0, 0.12);
+  border-radius: 2px;
+  padding: 8px;
+
+  .block-id {
+    display: flex;
+    justify-content: start;
+    color: $primary-color;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .block-text {
+
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: $dark-color;
+  }
 }

@@ -5,7 +5,8 @@ $vin-red: #ff0000;
 
 /* Styles */
 body {
-  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font: 'Roboto';
+  font-style: normal;
   line-height: 1.4em;
   color: #4d4d4d;
   min-width: 230px;
@@ -15,6 +16,8 @@ body {
   -moz-font-smoothing: antialiased;
   font-smoothing: antialiased;
   font-weight: 300;
+  background: #F3F3F3;
+  padding: 1rem !important;
 }
 
 td {
@@ -23,6 +26,14 @@ td {
 
 h2 {
 	color: $vin-blue;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 40px;
+  letter-spacing: 0.25px;
+  color: #000000;
 }
 
 .savings { color: $vin-green; }
